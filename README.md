@@ -1,8 +1,8 @@
-# GarimpAi
+# Garimpa.Ai
 
 ## Sobre o Projeto
 
-GarampAi é um sistema de consulta de moveis usados com integração da Inteligencia Artificial parta fazer consulta de produtos apartir de Fotos e extrair informações apra ajduar a preificar o produto final restaurado ou resconstruidos.
+Garampa.Ai é um sistema de consulta de moveis usados com integração da Inteligencia Artificial parta fazer consulta de produtos apartir de Fotos e extrair informações apra ajduar a preificar o produto final restaurado ou resconstruidos.
 
 O sistema foi desenvolvido para marceneiros e restauradores de moveis que precisam ajuda na precificação dos seus serviçoes ou produtos.
 
