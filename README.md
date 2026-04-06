@@ -8,22 +8,47 @@ O sistema foi desenvolvido para marceneiros e restauradores de moveis que precis
 
 Ele utiliza de configurações de consulta do produtos a partir de uma foto, onde ele vai analisar em um banco de lojas virtuais diversar, tentar pegar no maximo 5 referencias de lojas e no minimo 3. Caso não encontre o produto exato ele vai procurar pelo produto mais similiar, respeitando todas as referencias das fotos anexadas para consulta.
 
-### A consulta vai funcionar da seguinte forma
+## Funcionalidades do Sistema
 
-1. *O sistema vai **analisar 3 fotos de ângulos diferentes** do produto em um banco de lojas virtuais usando IA.*
-2. *Pegar as Seguintes informações e salvar em variaveis respectivas: **Nome do Produto**; **Link da Vitrine**; **Valor de Venda**.*
-3. *Repetir esse processo no minimo 3 e no maximo 5 vezes e armazenar em uma variavel pai com o **Nome da Loja***
-4. *Somar todos os valores e dividir pela quantidade de consultas realizadas, o resultado será a média do produto, que vai salvar em uma nova vareavel e apresentra a médio de preço de venda do produto.*
+### 1. Analise de Imagens com IA
 
-### Possiveis problemas que presicam ser resolvidos
+O usuário vai carregar um conjunto de fotos para serem analisadas com Inteligencia Artificial. A quantidade minima de fotos que devem ser carregadas é de 3 fotos, se possivel de angulos diferentes. Não tem um valor maximo, quanto mais fotos melhor o refinamento da consulta.
 
-1. Não localizar o produto.
-2. Quantidade de Consultas abaixo do minimo.
-3. Carregar as imagens do produtocom baixa qualidade.
-4. A falta de imagens do produto
+As imagens precisam estar com uma qualidade minima para o sistema fazer a consulta, caso a imagem esteja muito a baixo, o sistema vai apresentar uma mensagem de erro:
 
-Para esses possiveis erros apresentaremos uma mensagem amigavel apr ao usuário:
-
-```txt
-Por falta de infomrações, não foi possivel localizar o produto
+```text
+As imagens carregadas estão com  baixa resolução, isso pode comprometer na consulta do produto!
 ```
+
+### 2. Variaveis de Consulta
+
+Durante o processo de analise das fotos, o sistema deve encontrar as seguintes informações no banco de lojas virtuais:
+
+1. *Imagen do Produto*;
+2. *Nome do Produto*;
+3. *Link da Vitrine*;
+4. *Valor de Venda*.
+
+Essas informmações vão ficar salvas em variaveis de igual nome para serem apresentadas em uma lista de comparação após a consulta.
+
+### 3. Looping de consultas
+
+O Sistema vai fazer esse processo no minimo 3 e no maximo 5 vezes, e sempre que ele fizer este processo ele vai salvar em uma variavel pai com o nome da Loja. Assim todas as consultas ficam listadas de forma separada para fazer a comparação dos valores em diferentes lojas.
+
+### 4. Média de Preço Sugerido
+
+Após realizar as consultas e salvar nas devidas variaveis, o sistema vai fazer uma soma de todos os valores e depois dividir pela quantidade de consultas, o resultado será o o valore de venda sugerido ao usuário.
+
+## Possiveis problemas
+
++ **Não localizar o produto.**
+  + **Como Resolver:** Encontrar o produto mais similar possivel, sempre respeitando, as caracteristas do produto.
+
++ **Quantidade de Consultas abaixo do minimo.**
+  + **Como Resolver:** Apresentar a seguinte pensagem *"Por falta de informações, não foi possivel localizar o produto"*
+
++ **A falta de imagens do produto.**
+  + **Como Resolver:** Tentar consultar com a quantidade fornecida, porém, avisar o usuário final que isso pode comprometer na consulta do Produto.
+
++ **As fotos serem diferentes.**
+  + **Como Resolver:** Não realizar a consulta por divergencia do produto.
